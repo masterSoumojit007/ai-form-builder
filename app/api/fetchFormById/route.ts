@@ -9,7 +9,7 @@ export async function GET(req: Request) {
 
         if (!user) {
             return NextResponse.json(
-                { error: "❌ Unauthorized to use this resource" },
+                { error: "Unauthorized to use this resource" },
                 { status: 401 }
             );
         }
@@ -19,7 +19,7 @@ export async function GET(req: Request) {
 
         if (!formId) {
             return NextResponse.json(
-                { error: "⚠️ formId is required" },
+                { error: "formId is required" },
                 { status: 400 }
             );
         }
@@ -36,7 +36,7 @@ export async function GET(req: Request) {
 
         if (!form) {
             return NextResponse.json(
-                { error: "❌ Form not found" },
+                { error: "Form not found" },
                 { status: 404 }
             );
         }
@@ -44,13 +44,13 @@ export async function GET(req: Request) {
         return NextResponse.json({
             data: {
                 success: true,
-                message: "✅ Form fetched successfully",
+                message: "Form fetched successfully",
                 form,
             },
         });
     } catch (error: any) {
         return NextResponse.json(
-            { error: error?.message || "⚠️ Internal Server Error" },
+            { error: error?.message || "Internal Server Error" },
             { status: 500 }
         );
     }
